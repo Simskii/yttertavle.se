@@ -1,0 +1,33 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getCollection } from 'astro:content';
+
+const allNyheter = await getCollection('nyheter', ({ data }) => !data.draft);
+const sortedNyheter = allNyheter.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<PageLayout title="Nyheter" description="Senaste nytt från Yttertavle Bygdegårdsförening.">
+  <PageHeader title="Nyheter" subtitle="Senaste nytt från föreningen" />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {sortedNyheter.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {sortedNyheter.map((nyhet) => (
+            <NewsCard
+              title={nyhet.data.title}
+              date={nyhet.data.date}
+              excerpt={nyhet.data.excerpt}
+              image={nyhet.data.image}
+              slug={nyhet.id}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-gray-500 text-lg">Inga nyheter just nu. Kom tillbaka snart!</p>
+      )}
+    </div>
+  </section>
+</PageLayout>

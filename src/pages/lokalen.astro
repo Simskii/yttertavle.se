@@ -1,0 +1,127 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+const checkIcon = `<svg class="w-5 h-5 text-brand-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+---
+
+<PageLayout title="Lokalen" description="Hyr Yttertavle Bygdegård för fest, möten och evenemang. Se priser, kapacitet och utrustning.">
+  <PageHeader title="Lokalen" subtitle="En perfekt plats för ditt nästa evenemang" />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="font-heading text-2xl font-bold text-gray-900 mb-4">Om lokalen</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Föreningens bygdegård går att hyra för föreningsträffar, festkvällar, bröllop eller
+            andra aktiviteter. Lokalen rymmer upp till 50 sittande gäster och har ett fullt
+            utrustat kök.
+          </p>
+
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6 text-sm text-amber-800">
+            <p class="font-semibold mb-1">Viktigt att veta</p>
+            <ul class="space-y-1">
+              <li>Du som hyr måste vara minst 25 år</li>
+              <li>Ansvarig hyrestagare ska personligen vara närvarande på tillställningen</li>
+            </ul>
+          </div>
+
+          <h3 class="font-bold text-lg text-gray-900 mb-3">Tillgänglighet</h3>
+          <ul class="space-y-2 text-gray-600 mb-6">
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Handikappanpassad toalett</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Ramp för rullstolar och barnvagnar</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Separat toa/omklädningsrum med dusch</li>
+          </ul>
+
+          <h3 class="font-bold text-lg text-gray-900 mb-3">Allmän utrustning</h3>
+          <ul class="space-y-2 text-gray-600 mb-6">
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Kapprum med klädhängare</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Två toaletter vid entrén</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Stort serveringsbord på hjul</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Liten bardisk</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />10 fällbara bord och 50 stapelbara stolar</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />3 barnstolar</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Utemöbler på uteplatsen</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Städutrustning</li>
+          </ul>
+
+          <h3 class="font-bold text-lg text-gray-900 mb-3">Köksutrustning</h3>
+          <ul class="space-y-2 text-gray-600 mb-8">
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Kylskåp med frysfack</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Diskmaskin</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Spis med 3 plattor och ugn</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Dubbel kaffebryggare (cafémodell)</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Glas, koppar, tallrikar, bestick</li>
+            <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Diverse köksredskap, skålar och uppläggningsfat</li>
+          </ul>
+
+          <h3 class="font-bold text-lg text-gray-900 mb-3">Priser</h3>
+          <div class="bg-gray-50 rounded-xl p-6">
+            <table class="w-full text-sm">
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 text-gray-600">Enklare möte (vardagskväll)</td>
+                  <td class="py-3 text-right font-semibold text-gray-900">200 kr</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 text-gray-600">Barndop</td>
+                  <td class="py-3 text-right font-semibold text-gray-900">500 kr</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 text-gray-600">Helgkväll</td>
+                  <td class="py-3 text-right font-semibold text-gray-900">1 800 kr</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 text-gray-600">Helgkväll (medlem)</td>
+                  <td class="py-3 text-right font-semibold text-brand-700">700 kr</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 text-gray-600">Bröllop</td>
+                  <td class="py-3 text-right font-semibold text-gray-900">Enl. överenskommelse</td>
+                </tr>
+                <tr>
+                  <td class="py-3 text-gray-600">Depositionsavgift</td>
+                  <td class="py-3 text-right font-semibold text-gray-900">2 000 kr</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-gray-500 text-sm mt-4">
+            Uthyrningsansvarig nås på <a href="tel:070-6484804" class="text-brand-700 font-semibold hover:underline">070-648 48 04</a>
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="rounded-xl overflow-hidden shadow-md">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&h=500&fit=crop" alt="Festlokal med dukat bord" class="w-full h-64 object-cover" />
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" alt="Kök" class="w-full h-40 object-cover" />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop" alt="Lokal" class="w-full h-40 object-cover" />
+            </div>
+          </div>
+
+          <div class="bg-brand-50 rounded-xl p-6 text-center">
+            <p class="font-semibold text-gray-900 mb-2">Vill du boka?</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Ring uthyrningsansvarig för att kolla tillgänglighet och boka.
+            </p>
+            <a
+              href="tel:070-6484804"
+              class="inline-block px-6 py-3 bg-brand-700 text-white font-semibold rounded-full hover:bg-brand-800 transition-colors"
+            >
+              Ring 070-648 48 04
+            </a>
+            <p class="text-gray-500 text-xs mt-3">
+              Eller <a href="mailto:info@yttertavle.se?subject=Bokningsförfrågan" class="text-brand-700 font-semibold hover:underline">skicka e-post</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

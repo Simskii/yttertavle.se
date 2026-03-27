@@ -1,0 +1,26 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const nyheter = await getCollection('nyheter', ({ data }) => !data.draft);
+  return nyheter.map((nyhet) => ({
+    params: { slug: nyhet.id },
+    props: nyhet,
+  }));
+}
+
+const nyhet = Astro.props;
+const { Content } = await render(nyhet);
+---
+
+<PostLayout
+  title={nyhet.data.title}
+  date={nyhet.data.date}
+  author={nyhet.data.author}
+  image={nyhet.data.image}
+  backLink="/nyheter"
+  backText="Tillbaka till nyheter"
+>
+  <Content />
+</PostLayout>

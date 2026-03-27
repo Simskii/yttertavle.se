@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  linkText: string;
+  linkHref: string;
+  icon: string;
+}
+
+const { title, description, linkText, linkHref, icon } = Astro.props;
+---
+
+<div class="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-lg transition-shadow p-6 text-center">
+  <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-brand-100">
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class="font-bold text-base mb-2 text-gray-900">{title}</h3>
+  <p class="text-gray-500 text-sm mb-5 leading-relaxed">{description}</p>
+  <a
+    href={linkHref}
+    class="inline-block px-5 py-2 border border-gray-800 text-gray-800 text-sm font-medium rounded-full hover:bg-brand-700 hover:text-white hover:border-brand-700 transition-colors"
+  >
+    {linkText}
+  </a>
+</div>

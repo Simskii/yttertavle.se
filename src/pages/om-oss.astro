@@ -1,0 +1,39 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<PageLayout title="Om oss" description="Lär känna Yttertavle Bygdegårdsförening - vår historia, vårt uppdrag och vår styrelse.">
+  <PageHeader title="Om oss" subtitle="Vår historia och vårt uppdrag" />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2 class="font-heading text-2xl font-bold text-gray-900 mb-4">Vår historia</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Yttertavle Bygdegårdsförening har sedan länge varit en viktig del av bygdens sociala liv.
+          Föreningen grundades med målet att erbjuda en samlingsplats för alla i trakten — en plats
+          för fester, möten, kulturella evenemang och vardaglig gemenskap.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Yttertavle är en by belägen cirka 3 kilometer sydost om Tomtebo.
+          Föreningens verksamhet omfattar bland annat skötsel och uthyrning av bygdegården,
+          underhåll av badplatsen i Holmsjön, samt fritidsaktiviteter för föreningens medlemmar.
+        </p>
+
+        <h2 class="font-heading text-2xl font-bold text-gray-900 mb-4 mt-10">Vår vision</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Vi vill vara en levande mötesplats som bidrar till en stark och sammanhållen bygd.
+          Genom att erbjuda en välskött lokal och engagerande aktiviteter skapar vi förutsättningar
+          för gemenskap över generationsgränserna.
+        </p>
+
+        <div class="bg-brand-50 rounded-xl p-6 mt-10">
+          <p class="text-gray-700">
+            Har du frågor om föreningen? <a href="/kontakt" class="text-brand-700 font-semibold hover:underline">Kontakta oss</a> så berättar vi mer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
