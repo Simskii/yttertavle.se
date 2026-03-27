@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { url } from '../utils/base';
 ---
 
 <PageLayout title="Boka lokalen" description="Boka Yttertavle Bygdegård för ditt evenemang.">
@@ -46,7 +47,7 @@ import PageHeader from '../components/PageHeader.astro';
         </div>
 
         <p class="text-gray-500 text-sm">
-          Du som hyr måste vara minst 25 år. Se <a href="/lokalen" class="text-brand-700 font-semibold hover:underline">priser och utrustning</a>.
+          Du som hyr måste vara minst 25 år. Se <a href={url('/lokalen')} class="text-brand-700 font-semibold hover:underline">priser och utrustning</a>.
         </p>
       </div>
     </div>

@@ -1,10 +1,12 @@
 ---
+import { url } from '../utils/base';
+
 const navLinks = [
-  { href: '/', label: 'Hem' },
-  { href: '/om-oss', label: 'Om oss' },
-  { href: '/evenemang', label: 'Evenemang' },
-  { href: '/lokalen', label: 'Lokalen' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: url('/'), label: 'Hem' },
+  { href: url('/om-oss'), label: 'Om oss' },
+  { href: url('/evenemang'), label: 'Evenemang' },
+  { href: url('/lokalen'), label: 'Lokalen' },
+  { href: url('/kontakt'), label: 'Kontakt' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -13,7 +15,7 @@ const currentPath = Astro.url.pathname;
 <header class="bg-white sticky top-0 z-50 shadow-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
-      <a href="/" class="flex items-center gap-2">
+      <a href={url('/')} class="flex items-center gap-2">
         <svg class="w-8 h-8 text-brand-700" viewBox="0 0 32 32" fill="currentColor">
           <path d="M16 3C13 3 8 8 8 14c0 4.5 3 8.5 8 10 5-1.5 8-5.5 8-10 0-6-5-11-8-11zm-2 17.5c-2.5-1.5-4-4-4-6.5 0-4 3-8 6-9v15.5zm4 0V4c3 1 6 5 6 9 0 2.5-1.5 5-4 6.5z"/>
           <rect x="15" y="24" width="2" height="5" rx="1"/>
@@ -30,7 +32,7 @@ const currentPath = Astro.url.pathname;
             href={link.href}
             class:list={[
               'px-3 py-2 rounded-md text-sm font-medium transition-colors',
-              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+              currentPath === link.href || (link.href !== url('/') && currentPath.startsWith(link.href))
                 ? 'text-brand-700 bg-brand-50'
                 : 'text-gray-600 hover:text-brand-700 hover:bg-brand-50',
             ]}
@@ -39,7 +41,7 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
-          href="/bokningsforfragan"
+          href={url('/bokningsforfragan')}
           class="ml-2 px-5 py-1.5 bg-brand-700 text-white text-sm font-semibold rounded-full hover:bg-brand-800 transition-colors"
         >
           Boka nu
@@ -65,7 +67,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class:list={[
             'block px-3 py-2 rounded-md text-base font-medium',
-            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+            currentPath === link.href || (link.href !== url('/') && currentPath.startsWith(link.href))
               ? 'text-brand-700 bg-brand-50'
               : 'text-gray-600 hover:text-brand-700 hover:bg-brand-50',
           ]}
@@ -74,7 +76,7 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
       <a
-        href="/bokningsforfragan"
+        href={url('/bokningsforfragan')}
         class="block mt-2 px-3 py-2 bg-brand-700 text-white text-center font-semibold rounded-full hover:bg-brand-800"
       >
         Boka nu

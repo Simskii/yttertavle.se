@@ -1,6 +1,7 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { url } from '../../utils/base';
 
 export async function getStaticPaths() {
   const nyheter = await getCollection('nyheter', ({ data }) => !data.draft);
@@ -19,7 +20,7 @@ const { Content } = await render(nyhet);
   date={nyhet.data.date}
   author={nyhet.data.author}
   image={nyhet.data.image}
-  backLink="/nyheter"
+  backLink={url('/nyheter')}
   backText="Tillbaka till nyheter"
 >
   <Content />

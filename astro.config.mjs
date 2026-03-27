@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://yttertavle.se',
+  site: 'https://simskii.github.io',
+  base: '/yttertavle.se',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

@@ -1,6 +1,7 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { url } from '../../utils/base';
 
 export async function getStaticPaths() {
   const evenemang = await getCollection('evenemang', ({ data }) => !data.draft);
@@ -24,7 +25,7 @@ const formattedDate = event.data.date.toLocaleDateString('sv-SE', {
 <PostLayout
   title={event.data.title}
   date={event.data.date}
-  backLink="/evenemang"
+  backLink={url('/evenemang')}
   backText="Tillbaka till evenemang"
 >
   <div class="bg-brand-50 rounded-xl p-6 mb-8 not-prose">
