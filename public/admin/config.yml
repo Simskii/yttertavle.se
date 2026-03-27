@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Simskii/yttertavle.se
   branch: main
-  base_url: https://api.decap-cms.org
+  base_url: https://yttertavle.netlify.app
 
 media_folder: public/images/uploads
 public_folder: /images/uploads
