@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Yttertavle Bygdegård</title>
+  <desc id="desc">Open Graph image with the Yttertavle Bygdegård name and booking contact details.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3514" />
+      <stop offset="55%" stop-color="#2d5016" />
+      <stop offset="100%" stop-color="#4a8c2a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="150" cy="110" r="120" fill="#ddefd4" opacity="0.08" />
+  <circle cx="1050" cy="120" r="140" fill="#ddefd4" opacity="0.08" />
+  <circle cx="980" cy="520" r="160" fill="#ddefd4" opacity="0.08" />
+
+  <g transform="translate(92 92)" fill="none" stroke="#ddefd4" stroke-width="12">
+    <path d="M42 0v120" stroke-linecap="round" />
+    <path d="M10 24c12-12 22-18 32-18s20 6 32 18" stroke-linecap="round" />
+    <path d="M18 120c0-20 16-36 36-36s36 16 36 36" />
+  </g>
+
+  <text x="92" y="220" fill="#f7f5ed" font-size="76" font-family="'Playfair Display', Georgia, serif" font-weight="700">
+    Yttertavle Bygdegård
+  </text>
+  <text x="92" y="290" fill="#ddefd4" font-size="28" font-family="'Inter', Arial, sans-serif">
+    Lokal för möten, fest och gemenskap i bygden
+  </text>
+
+  <g transform="translate(92 352)">
+    <rect width="410" height="132" rx="28" fill="#f7f5ed" />
+    <text x="36" y="52" fill="#2d5016" font-size="22" font-family="'Inter', Arial, sans-serif" font-weight="700">
+      Boka lokalen
+    </text>
+    <text x="36" y="92" fill="#425466" font-size="26" font-family="'Inter', Arial, sans-serif">
+      070-648 48 04
+    </text>
+  </g>
+
+  <text x="92" y="560" fill="#f7f5ed" font-size="22" font-family="'Inter', Arial, sans-serif">
+    info@yttertavle.se
+  </text>
+</svg>

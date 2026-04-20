@@ -2,32 +2,23 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureCard from '../components/FeatureCard.astro';
-import NewsCard from '../components/NewsCard.astro';
-import { getCollection } from 'astro:content';
 import { url } from '../utils/base';
-
-const allNyheter = await getCollection('nyheter', ({ data }) => !data.draft);
-const latestNyheter = allNyheter
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
-
-const linkLabels: Record<string, string> = {
-  'succe-for-sommarfesten': 'Sommarfesten!',
-  'renovering-stora-salen': 'Renoveringen',
-  'inbjudan-hostmarknad': 'Höstmarknaden',
-};
 
 const houseIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819" /></svg>`;
 const heartIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>`;
-const calendarIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>`;
+const contactIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75A2.25 2.25 0 014.5 4.5h15a2.25 2.25 0 012.25 2.25v10.5A2.25 2.25 0 0119.5 19.5h-15a2.25 2.25 0 01-2.25-2.25V6.75z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m3 7.5 8.293 5.529a1.25 1.25 0 001.414 0L21 7.5" /></svg>`;
 ---
 
-<PageLayout title="Hem">
+<PageLayout
+  title="Yttertavle Bygdegård"
+  description="Yttertavle Bygdegårdsförening hyr ut bygdegården för möten, fest och aktiviteter. Se priser, utrustning och bokning."
+>
   <Hero
     title="Välkommen till Yttertavle Bygdegård"
-    subtitle="En levande mötesplats för gemenskap och kultur i hjärtat av bygden."
-    ctaText="Upptäck våra aktiviteter"
-    ctaLink={url('/evenemang')}
+    subtitle="För uthyrning, möten och aktiviteter i Yttertavle."
+    ctaText="Boka nu"
+    ctaLink={url('/bokningsforfragan')}
+    backgroundImage="https://www.yttertavle.se/index_htm_files/26.jpg"
   />
 
   <section class="pt-0 pb-12 md:pb-16 bg-gray-50">
@@ -35,63 +26,49 @@ const calendarIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="cu
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 -mt-16 relative z-20">
         <FeatureCard
           title="Hyr lokalen"
-          description="Perfekt för fest, möten och evenemang. Se våra priser och tillgänglighet."
+          description="Information om priser, utrustning och kontakt för bokning."
           linkText="Boka lokalen"
           linkHref={url('/lokalen')}
           icon={houseIcon}
         />
         <FeatureCard
           title="Om föreningen"
-          description="Läs om vår historia och verksamhet. Tillsammans skapar vi en levande bygd."
-          linkText="Läs mer om oss"
+          description="Kort om föreningen och verksamheten i Yttertavle och Holmsjön."
+          linkText="Läs mer om föreningen"
           linkHref={url('/om-oss')}
           icon={heartIcon}
         />
         <FeatureCard
-          title="Aktuella evenemang"
-          description="Konserter, marknader och aktiviteter för alla åldrar. Missa inte vad som händer!"
-          linkText="Se evenemangskalendern"
-          linkHref={url('/evenemang')}
-          icon={calendarIcon}
+          title="Kontakt & bokning"
+          description="Ring för snabbast svar eller skicka e-post för bokningsförfrågan."
+          linkText="Kontakta oss"
+          linkHref={url('/kontakt')}
+          icon={contactIcon}
         />
       </div>
     </div>
   </section>
 
   <section class="py-12 md:py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900">
-        Senaste nytt & Aktuellt
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+        Om föreningen
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {latestNyheter.map((nyhet) => (
-          <NewsCard
-            title={nyhet.data.title}
-            date={nyhet.data.date}
-            excerpt={nyhet.data.excerpt}
-            image={nyhet.data.image}
-            slug={nyhet.id}
-            linkLabel={linkLabels[nyhet.id]}
-          />
-        ))}
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Här finner du information om Bygdegårdsföreningen för Yttertavle och Holmsjön.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Föreningens verksamhet omfattar bland annat skötsel och uthyrning av bygdegården,
+        underhåll av badplatsen i Holmsjön samt fritidsaktiviteter för medlemmar.
+      </p>
+      <div class="mt-8">
+        <a
+          href={url('/om-oss')}
+          class="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800 transition-colors"
+        >
+          Läs mer om föreningen
+        </a>
       </div>
-    </div>
-  </section>
-
-  <section class="relative h-[350px] md:h-[400px] flex items-center justify-center">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&h=900&fit=crop')">
-      <div class="absolute inset-0 bg-black/45"></div>
-    </div>
-    <div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
-      <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-        Gemenskaper i Yttertavle
-      </h2>
-      <a
-        href={url('/om-oss')}
-        class="inline-block px-7 py-2.5 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-colors"
-      >
-        Läs mer om oss
-      </a>
     </div>
   </section>
 </PageLayout>

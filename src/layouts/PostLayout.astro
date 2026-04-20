@@ -5,12 +5,13 @@ interface Props {
   title: string;
   date: Date;
   author?: string;
+  description?: string;
   image?: string;
   backLink: string;
   backText: string;
 }
 
-const { title, date, author, image, backLink, backText } = Astro.props;
+const { title, date, author, description, image, backLink, backText } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('sv-SE', {
   year: 'numeric',
@@ -19,7 +20,7 @@ const formattedDate = date.toLocaleDateString('sv-SE', {
 });
 ---
 
-<PageLayout title={title}>
+<PageLayout title={title} description={description} image={image}>
   <article class="py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <a href={backLink} class="inline-flex items-center gap-1 text-brand-700 text-sm font-medium hover:text-brand-800 mb-6">

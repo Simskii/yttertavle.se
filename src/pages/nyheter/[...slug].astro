@@ -17,6 +17,7 @@ const { Content } = await render(nyhet);
 
 <PostLayout
   title={nyhet.data.title}
+  description={nyhet.data.excerpt}
   date={nyhet.data.date}
   author={nyhet.data.author}
   image={nyhet.data.image}

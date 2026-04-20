@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hero background for Yttertavle Bygdegård</title>
+  <desc id="desc">Decorative illustration with forest tones and a stylized bygdegård.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27431a" />
+      <stop offset="55%" stop-color="#345d22" />
+      <stop offset="100%" stop-color="#1e3514" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ddefd4" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#ddefd4" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)" />
+  <rect width="1600" height="900" fill="url(#glow)" />
+
+  <g opacity="0.18" fill="#ddefd4">
+    <circle cx="180" cy="160" r="120" />
+    <circle cx="1360" cy="140" r="150" />
+    <circle cx="1260" cy="700" r="180" />
+  </g>
+
+  <g fill="#183010">
+    <path d="M0 650c120-60 240-90 360-90s240 24 360 72c88 35 175 53 264 53 107 0 210-24 309-73 80-39 182-62 307-62v350H0z" />
+    <path d="M0 720c120-38 242-57 366-57 112 0 219 18 322 54s201 54 294 54c120 0 242-32 366-96 68-35 152-53 252-53v278H0z" fill="#14280d" />
+  </g>
+
+  <g opacity="0.45" stroke="#ddefd4" stroke-width="6" stroke-linecap="round">
+    <path d="M140 690V430" />
+    <path d="M210 690V380" />
+    <path d="M1280 700V410" />
+    <path d="M1360 700V360" />
+  </g>
+
+  <g transform="translate(900 255)">
+    <polygon points="0,150 220,0 440,150" fill="#e7c99a" opacity="0.96" />
+    <rect x="80" y="150" width="280" height="220" rx="8" fill="#f2efe6" />
+    <rect x="118" y="190" width="80" height="72" rx="6" fill="#ddefd4" opacity="0.88" />
+    <rect x="240" y="190" width="80" height="72" rx="6" fill="#ddefd4" opacity="0.88" />
+    <rect x="190" y="258" width="60" height="112" rx="6" fill="#2d5016" />
+    <rect x="76" y="364" width="288" height="20" rx="10" fill="#d4b07c" />
+  </g>
+
+  <g fill="#ddefd4" opacity="0.12">
+    <path d="M90 820 220 630l130 190z" />
+    <path d="M300 820 420 610l120 210z" />
+    <path d="M1210 820 1330 620l120 200z" />
+    <path d="M1340 820 1460 650l90 170z" />
+  </g>
+</svg>
