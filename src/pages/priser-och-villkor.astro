@@ -1,0 +1,106 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { url } from '../utils/base';
+---
+
+<PageLayout
+  title="Priser & villkor"
+  description="Priser, regler och bokningsvillkor för att hyra Yttertavle Bygdegård."
+>
+  <PageHeader title="Priser & villkor" subtitle="Tydlig översikt inför din bokning" />
+
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-gray-600 leading-relaxed">
+          Här hittar du aktuella priser och de regler som gäller vid uthyrning av Yttertavle Bygdegård. Bokning sker
+          fortsatt via telefon eller e-post.
+        </p>
+      </div>
+
+      <div class="mt-10 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-50 text-left">
+            <tr>
+              <th class="px-4 py-3 font-semibold text-gray-900">Typ av bokning</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">Medlem</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">Icke medlem</th>
+              <th class="px-4 py-3 font-semibold text-gray-900">Kommentar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 text-gray-700">Enklare möte (vardagskväll)</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">200 kr</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">200 kr</td>
+              <td class="px-4 py-3 text-gray-600">Kortare förenings- eller vardagsmöte.</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 text-gray-700">Vardag</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">500 kr</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">500 kr</td>
+              <td class="px-4 py-3 text-gray-600">Dag- eller kvällsbokning enligt överenskommelse.</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 text-gray-700">Helg</td>
+              <td class="px-4 py-3 font-semibold text-brand-700">700 kr</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">1 800 kr</td>
+              <td class="px-4 py-3 text-gray-600">Helg räknas fredag till söndag.</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 text-gray-700">Bröllop</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">Enl. överenskommelse</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">Enl. överenskommelse</td>
+              <td class="px-4 py-3 text-gray-600">Kontakta uthyrningsansvarig för offert.</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 text-gray-700">Depositionsavgift</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">-</td>
+              <td class="px-4 py-3 font-semibold text-gray-900">2 000 kr</td>
+              <td class="px-4 py-3 text-gray-600"
+                >Betalas i samband med bokning och återbetalas efter godkänd städning.</td
+              >
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+          <h2 class="font-heading text-xl font-bold text-gray-900 mb-3">Regler och villkor</h2>
+          <ul class="space-y-2 text-sm text-amber-900">
+            <li>Du som hyr måste vara minst 25 år.</li>
+            <li>Ansvarig hyrestagare ska personligen vara närvarande under hela tillställningen.</li>
+            <li>Vardag räknas måndag till torsdag. Helg räknas fredag till söndag.</li>
+            <li>Lokalen och området utanför lämnas städade enligt städinstruktion på plats.</li>
+            <li>Vissa avvikelser kan förekomma vid storhelger och röda dagar.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-brand-100 bg-brand-50 p-6">
+          <h2 class="font-heading text-xl font-bold text-gray-900 mb-3">Nycklar och betalning</h2>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>Nyckel utlämnas enligt överenskommelse när bokningen är bekräftad.</li>
+            <li>Betalning och deposition sker enligt instruktion i bokningsbekräftelsen.</li>
+            <li>Har du särskilda behov för tider eller upplägg, kontakta oss så hittar vi en lösning.</li>
+          </ul>
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a
+              href={url('/bokningsforfragan')}
+              class="inline-flex items-center justify-center rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800 transition-colors"
+            >
+              Så bokar du
+            </a>
+            <a
+              href="tel:070-6484804"
+              class="inline-flex items-center justify-center rounded-full border border-brand-600 px-5 py-2.5 text-sm font-semibold text-brand-700 hover:border-brand-700 transition-colors"
+            >
+              Ring 070-648 48 04
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

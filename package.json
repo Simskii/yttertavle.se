@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=yttertavle-se --branch=main",
     "astro": "astro"
   },
   "dependencies": {
@@ -16,5 +17,11 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.1",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.18.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

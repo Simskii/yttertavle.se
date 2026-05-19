@@ -1,10 +1,14 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { url } from '../utils/base';
 ---
 
-<PageLayout title="Kontakt" description="Kontakta Yttertavle Bygdegårdsförening. Hitta oss på kartan eller hör av dig via telefon eller e-post.">
-  <PageHeader title="Kontakt" subtitle="Hör av dig till oss" />
+<PageLayout
+  title="Kontakt"
+  description="Kontakta Yttertavle Bygdegårdsförening via telefon eller e-post och hitta till bygdegården."
+>
+  <PageHeader title="Kontakt" subtitle="Kontaktuppgifter och hitta hit" />
 
   <section class="py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +20,31 @@ import PageHeader from '../components/PageHeader.astro';
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 bg-brand-50 rounded-full flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-1">Telefon (bokning)</p>
+                <p class="text-gray-600">
+                  <a href="tel:070-6484804" class="hover:text-brand-700 transition-colors">070-648 48 04</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-brand-50 rounded-full flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
                 </svg>
               </div>
               <div>
@@ -26,38 +54,25 @@ import PageHeader from '../components/PageHeader.astro';
                 </p>
               </div>
             </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-brand-50 rounded-full flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-                </svg>
-              </div>
-              <div>
-                <p class="font-semibold text-gray-900 mb-1">Uthyrning av lokalen</p>
-                <p class="text-gray-600">
-                  <a href="tel:070-6484804" class="hover:text-brand-700 transition-colors">070-648 48 04</a>
-                </p>
-                <p class="text-gray-500 text-sm mt-1">Ring för snabbast svar om tillgänglighet och bokning.</p>
-              </div>
-            </div>
           </div>
 
+          <div class="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700">
+            För priser och regler, se
+            <a href={url('/priser-och-villkor')} class="font-semibold text-brand-700 hover:underline">Priser & villkor</a>.
+          </div>
         </div>
 
         <div>
           <h3 class="font-bold text-gray-900 mb-3">Hitta hit</h3>
           <div class="rounded-xl overflow-hidden shadow-md">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=20.30%2C63.75%2C20.45%2C63.82&layer=mapnik&marker=63.78%2C20.38"
+              src="https://www.google.com/maps?q=Yttertavle%20Bygdeg%C3%A5rd%2C%20905%2096%20Ume%C3%A5%2C%20Sweden&output=embed"
               class="w-full h-80 border-0"
               loading="lazy"
-              title="Karta till Yttertavle Bygdegård"
-            ></iframe>
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Karta till Yttertavle Bygdegård"></iframe>
           </div>
-          <p class="text-gray-500 text-sm mt-3">
-            Yttertavle är en by belägen cirka 3 kilometer sydost om Tomtebo.
-          </p>
+          <p class="text-gray-500 text-sm mt-3">Yttertavle Bygdegård, 905 96 Umeå, Sweden.</p>
         </div>
       </div>
     </div>

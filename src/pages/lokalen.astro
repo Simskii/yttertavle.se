@@ -1,11 +1,13 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import { url } from '../utils/base';
+
 const checkIcon = `<svg class="w-5 h-5 text-brand-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
 ---
 
-<PageLayout title="Lokalen" description="Hyr Yttertavle Bygdegård för fest, möten och evenemang. Se priser, kapacitet och utrustning.">
-  <PageHeader title="Lokalen" subtitle="En perfekt plats för ditt nästa evenemang" />
+<PageLayout title="Lokalen" description="Hyr Yttertavle Bygdegård för fest, möten och evenemang. Se kapacitet, utrustning, priser och villkor.">
+  <PageHeader title="Lokalen" subtitle="Utrustning och praktisk information inför bokning" />
 
   <section class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,65 +57,50 @@ const checkIcon = `<svg class="w-5 h-5 text-brand-500 shrink-0" fill="none" stro
             <li class="flex items-center gap-2"><Fragment set:html={checkIcon} />Diverse köksredskap, skålar och uppläggningsfat</li>
           </ul>
 
-          <h3 class="font-bold text-lg text-gray-900 mb-3">Priser</h3>
-          <div class="bg-gray-50 rounded-xl p-6">
-            <table class="w-full text-sm">
-              <tbody>
-                <tr class="border-b border-gray-200">
-                  <td class="py-3 text-gray-600">Enklare möte (vardagskväll)</td>
-                  <td class="py-3 text-right font-semibold text-gray-900">200 kr</td>
-                </tr>
-                <tr class="border-b border-gray-200">
-                  <td class="py-3 text-gray-600">Barndop</td>
-                  <td class="py-3 text-right font-semibold text-gray-900">500 kr</td>
-                </tr>
-                <tr class="border-b border-gray-200">
-                  <td class="py-3 text-gray-600">Helgkväll</td>
-                  <td class="py-3 text-right font-semibold text-gray-900">1 800 kr</td>
-                </tr>
-                <tr class="border-b border-gray-200">
-                  <td class="py-3 text-gray-600">Helgkväll (medlem)</td>
-                  <td class="py-3 text-right font-semibold text-brand-700">700 kr</td>
-                </tr>
-                <tr class="border-b border-gray-200">
-                  <td class="py-3 text-gray-600">Bröllop</td>
-                  <td class="py-3 text-right font-semibold text-gray-900">Enl. överenskommelse</td>
-                </tr>
-                <tr>
-                  <td class="py-3 text-gray-600">Depositionsavgift</td>
-                  <td class="py-3 text-right font-semibold text-gray-900">2 000 kr</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+            <h3 class="font-bold text-lg text-gray-900 mb-2">Priser och villkor</h3>
+            <p class="text-sm text-gray-700 leading-relaxed mb-4">
+              Fullständig prislista, deposition och samtliga regler finns på sidan
+              <a href={url('/priser-och-villkor')} class="font-semibold text-brand-700 hover:underline">Priser & villkor</a>.
+            </p>
+            <a
+              href={url('/priser-och-villkor')}
+              class="inline-flex items-center justify-center rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800 transition-colors"
+            >
+              Se priser & villkor
+            </a>
           </div>
-
-          <p class="text-gray-500 text-sm mt-4">
-            Uthyrningsansvarig nås på <a href="tel:070-6484804" class="text-brand-700 font-semibold hover:underline">070-648 48 04</a>
-          </p>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-6 lg:sticky lg:top-28">
           <div class="rounded-2xl border border-brand-100 bg-brand-50 p-6">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Bokning</h3>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              Kontakta uthyrningsansvarig via telefon eller e-post för att kontrollera datum och boka lokalen.
-            </p>
+            <h3 class="font-bold text-lg text-gray-900 mb-3">Så bokar du</h3>
+            <ol class="space-y-3 text-sm text-gray-700 list-decimal pl-5">
+              <li>Kontrollera datum via telefon eller e-post.</li>
+              <li>Bekräfta pris och villkor för ditt upplägg.</li>
+              <li>Slutför bokningen och betala deposition enligt instruktion.</li>
+            </ol>
           </div>
 
           <div class="rounded-2xl bg-brand-900 p-6 text-center text-white shadow-md">
             <p class="font-semibold mb-2">Vill du boka?</p>
             <p class="text-sm text-brand-100 mb-4 leading-relaxed">
-              Ring uthyrningsansvarig för snabbast svar.
+              Ring uthyrningsansvarig för snabbast svar eller skicka e-post.
             </p>
-            <a
-              href="tel:070-6484804"
-              class="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors"
-            >
-              Ring 070-648 48 04
-            </a>
-            <p class="text-brand-200 text-xs mt-3">
-              Eller <a href="mailto:info@yttertavle.se?subject=Bokningsförfrågan" class="font-semibold text-white hover:underline">skicka e-post</a>.
-            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="tel:070-6484804"
+                class="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-full hover:bg-gray-100 transition-colors"
+              >
+                Ring 070-648 48 04
+              </a>
+              <a
+                href={url('/bokningsforfragan')}
+                class="inline-block px-6 py-3 border border-brand-300 text-white font-semibold rounded-full hover:bg-brand-800 transition-colors"
+              >
+                Så bokar du
+              </a>
+            </div>
           </div>
         </div>
       </div>

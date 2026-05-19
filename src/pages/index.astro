@@ -26,16 +26,16 @@ const contactIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="cur
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 -mt-16 relative z-20">
         <FeatureCard
           title="Hyr lokalen"
-          description="Information om priser, utrustning och kontakt för bokning."
-          linkText="Boka lokalen"
+          description="Se lokalens kapacitet, utrustning och hur bokningen går till."
+          linkText="Se lokalen"
           linkHref={url('/lokalen')}
           icon={houseIcon}
         />
         <FeatureCard
-          title="Om föreningen"
-          description="Kort om föreningen och verksamheten i Yttertavle och Holmsjön."
-          linkText="Läs mer om föreningen"
-          linkHref={url('/om-oss')}
+          title="Priser & villkor"
+          description="Se prislista, deposition och regler inför bokning."
+          linkText="Se priser & villkor"
+          linkHref={url('/priser-och-villkor')}
           icon={heartIcon}
         />
         <FeatureCard
@@ -51,24 +51,12 @@ const contactIcon = `<svg class="w-7 h-7 text-brand-700" fill="none" stroke="cur
 
   <section class="py-12 md:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-        Om föreningen
-      </h2>
-      <p class="text-gray-600 leading-relaxed mb-4">
-        Här finner du information om Bygdegårdsföreningen för Yttertavle och Holmsjön.
-      </p>
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-6">Om föreningen</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">Yttertavle är en by belägen cirka 3 kilometer sydost om Tomtebo.</p>
       <p class="text-gray-600 leading-relaxed">
-        Föreningens verksamhet omfattar bland annat skötsel och uthyrning av bygdegården,
-        underhåll av badplatsen i Holmsjön samt fritidsaktiviteter för medlemmar.
+        Föreningens verksamhet omfattar bland annat skötsel och uthyrning av bygdegården, underhåll av badplatsen i
+        Holmsjön samt fritidsaktiviteter för medlemmar.
       </p>
-      <div class="mt-8">
-        <a
-          href={url('/om-oss')}
-          class="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800 transition-colors"
-        >
-          Läs mer om föreningen
-        </a>
-      </div>
     </div>
   </section>
 </PageLayout>
