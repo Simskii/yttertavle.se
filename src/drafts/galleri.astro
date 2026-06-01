@@ -1,0 +1,122 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { url } from '../utils/base';
+
+const images = [
+  {
+    src: url('/images/galleri/bygdegard-ute.jpg'),
+    alt: 'Yttertavle Bygdegård sedd utifrån med entré och ramp.',
+    caption: 'Bygdegården utifrån',
+    description: 'Entrén med ramp och uteplats framför lokalen.',
+    imageClass: 'object-cover',
+  },
+  {
+    src: url('/images/galleri/samlingssal.jpg'),
+    alt: 'Samlingssalen i Yttertavle Bygdegård med trägolv och öppna ytor.',
+    caption: 'Samlingssalen',
+    description: 'Öppen samlingssal för fest, möten och föreningsaktiviteter.',
+    imageClass: 'object-cover',
+  },
+  {
+    src: url('/images/galleri/planritning.jpg'),
+    alt: 'Planritning över Yttertavle Bygdegård.',
+    caption: 'Planritning',
+    description: 'Överblick över lokalens rum och disposition.',
+    imageClass: 'object-contain p-4',
+  },
+];
+---
+
+<PageLayout
+  title="Galleri"
+  description="Se bilder från Yttertavle Bygdegård, samlingssalen och lokalens planritning inför bokning."
+>
+  <section class="relative overflow-hidden bg-zinc-950">
+    <img
+      src={url('/images/galleri/bygdegard-ute.jpg')}
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover opacity-65"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/60 to-zinc-950/20"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-2xl">
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          Galleri
+        </h1>
+        <p class="mt-5 text-lg leading-8 text-zinc-100">
+          Se bygdegården, samlingssalen och planritningen inför din bokning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-zinc-50 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-3xl">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Se lokalen inför din bokning
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Här finns ett urval bilder från bygdegården så att du enklare kan få en känsla för lokalen,
+          entrén och planlösningen innan du skickar en bokningsförfrågan.
+        </p>
+        </div>
+        <a
+          href={url('/bokningsforfragan')}
+          class="inline-flex w-fit items-center justify-center rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-800"
+        >
+          Boka lokalen
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          images.map((image) => (
+            <figure class="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-md shadow-zinc-200/70 transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-zinc-300/60">
+              <div class="aspect-[4/3] bg-zinc-100">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  class:list={['h-full w-full', image.imageClass]}
+                />
+              </div>
+              <figcaption class="px-5 py-4">
+                <p class="text-sm font-semibold text-zinc-900">{image.caption}</p>
+                <p class="mt-1 text-sm leading-6 text-zinc-600">{image.description}</p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-lg shadow-zinc-200/70">
+        <div class="grid gap-0 md:grid-cols-[1fr_1.4fr]">
+          <div class="min-h-48">
+            <img
+              src={url('/images/galleri/samlingssal.jpg')}
+              alt=""
+              loading="lazy"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="px-6 py-8 md:px-8">
+            <h2 class="font-heading text-2xl font-bold text-zinc-950">Vill du boka lokalen?</h2>
+            <p class="mt-3 max-w-2xl text-sm leading-6 text-zinc-600">
+              Kontrollera kalendern och skicka en bokningsförfrågan så återkommer vi med bekräftelse
+              eller förslag på alternativ.
+            </p>
+        <a
+          href={url('/bokningsforfragan')}
+              class="mt-6 inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-800"
+        >
+          Skicka bokningsförfrågan
+        </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
