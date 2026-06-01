@@ -48,7 +48,7 @@ Sidan `/bokningsforfragan` är byggd för en enkel extern bokningslösning:
 
 ```sh
 PUBLIC_BOOKING_CALENDAR_EMBED_URL="https://calendar.google.com/calendar/embed?src=yttertavlebygdegard%40gmail.com&ctz=Europe%2FStockholm&mode=WEEK&wkst=2&showTitle=0&showPrint=0&showCalendars=0"
-PUBLIC_BOOKING_TALLY_EMBED_URL="https://tally.so/embed/yPzz6B?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+PUBLIC_BOOKING_TALLY_EMBED_URL="https://tally.so/embed/5BMMJd?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
 ```
 
 Samma variabler kan sättas i Cloudflare Pages om kalendern eller formuläret ska kunna bytas utan kodändring.
