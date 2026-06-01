@@ -2,51 +2,133 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { url } from '../utils/base';
+
+const bookingCalendarEmbedUrl =
+  import.meta.env.PUBLIC_BOOKING_CALENDAR_EMBED_URL ??
+  'https://calendar.google.com/calendar/embed?src=yttertavlebygdegard%40gmail.com&ctz=Europe%2FStockholm&mode=WEEK&wkst=2&showTitle=0&showPrint=0&showCalendars=0';
+const bookingTallyEmbedUrl =
+  import.meta.env.PUBLIC_BOOKING_TALLY_EMBED_URL ??
+  'https://tally.so/embed/yPzz6B?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1';
 ---
 
-<PageLayout title="Boka lokalen" description="Så bokar du Yttertavle Bygdegård via telefon eller e-post.">
-  <PageHeader title="Boka lokalen" subtitle="Så går bokningen till" />
+<PageLayout
+  title="Boka lokalen"
+  description="Skicka en bokningsförfrågan till Yttertavle Bygdegård och kontrollera lediga datum i kalendern."
+>
+  <PageHeader title="Boka lokalen" subtitle="Kalender och bokningsförfrågan" />
 
-  <section class="py-16 md:py-24">
+  <section class="py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-200">
-        <h2 class="font-heading text-2xl font-bold text-gray-900 mb-4">Så bokar du i tre steg</h2>
-        <ol class="list-decimal pl-5 space-y-3 text-gray-700 leading-relaxed">
-          <li>Kontakta uthyrningsansvarig och kontrollera att datumet är ledigt.</li>
-          <li>Bekräfta vilken bokningstyp som gäller och gå igenom priser och villkor.</li>
-          <li>Slutför bokningen och betala enligt instruktion, inklusive deposition.</li>
-        </ol>
-
-        <div class="mt-6 p-4 rounded-xl border border-brand-100 bg-brand-50 text-sm text-gray-700">
-          Se fullständig prislista och regler på
-          <a href={url('/priser-och-villkor')} class="font-semibold text-brand-700 hover:underline">Priser & villkor</a>.
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <p class="text-sm font-semibold text-brand-700">1. Titta i kalendern</p>
+          <p class="mt-2 text-sm leading-6 text-gray-600">Kontrollera om datumet verkar ledigt.</p>
         </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <p class="text-sm font-semibold text-brand-700">2. Skicka förfrågan</p>
+          <p class="mt-2 text-sm leading-6 text-gray-600">Fyll i formuläret med datum, tid och kontaktuppgifter.</p>
+        </div>
+        <div class="rounded-lg border border-gray-200 bg-white p-5">
+          <p class="text-sm font-semibold text-brand-700">3. Vänta på svar</p>
+          <p class="mt-2 text-sm leading-6 text-gray-600">Bokningen gäller först när den har bekräftats.</p>
+        </div>
+      </div>
 
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="mt-8 rounded-lg border border-brand-100 bg-brand-50 p-4 text-sm text-gray-700">
+        Se fullständig prislista och regler på
+        <a href={url('/priser-och-villkor')} class="font-semibold text-brand-700 hover:underline">Priser & villkor</a>.
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 md:pb-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-10">
+        <section aria-labelledby="booking-calendar-title">
+          <h2 id="booking-calendar-title" class="font-heading text-2xl font-bold text-gray-900">Kalender</h2>
+          <p class="mt-1 text-sm text-gray-600">Bokade tider visas utan namn eller privata detaljer.</p>
+
+          {
+            bookingCalendarEmbedUrl ? (
+              <iframe
+                src={bookingCalendarEmbedUrl}
+                class="mt-4 h-[520px] w-full rounded-lg border border-gray-200 bg-white shadow-sm"
+                title="Bokningskalender för Yttertavle Bygdegård"
+                loading="lazy"
+              />
+            ) : (
+              <div class="mt-4 rounded-lg border border-dashed border-brand-200 bg-brand-50 p-6">
+                <h3 class="font-semibold text-gray-900">Kalendern är inte kopplad ännu</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-700">
+                  Skapa en publik Google Calendar och sätt embed-länken i
+                  <code class="rounded bg-white px-1 py-0.5 text-brand-800">PUBLIC_BOOKING_CALENDAR_EMBED_URL</code>.
+                </p>
+              </div>
+            )
+          }
+        </section>
+
+        <section aria-labelledby="booking-form-title">
+          <h2 id="booking-form-title" class="font-heading text-2xl font-bold text-gray-900">Bokningsförfrågan</h2>
+          <p class="mt-1 text-sm text-gray-600">Vi återkommer med bekräftelse eller förslag på alternativ.</p>
+
+          {
+            bookingTallyEmbedUrl ? (
+              <iframe
+                src={bookingTallyEmbedUrl}
+                class="mt-4 h-[1250px] w-full rounded-lg border border-gray-200 bg-white shadow-sm"
+                title="Formulär för bokningsförfrågan"
+                loading="lazy"
+              />
+            ) : (
+              <div class="mt-4 rounded-lg border border-dashed border-brand-200 bg-brand-50 p-6">
+                <h3 class="font-semibold text-gray-900">Formuläret är inte kopplat ännu</h3>
+                <p class="mt-2 text-sm leading-6 text-gray-700">
+                  Skapa ett Tally-formulär och sätt embed-länken i
+                  <code class="rounded bg-white px-1 py-0.5 text-brand-800">PUBLIC_BOOKING_TALLY_EMBED_URL</code>.
+                </p>
+              </div>
+            )
+          }
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 md:pb-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-lg border border-gray-200 bg-gray-50 p-6 md:p-8">
+        <h2 class="font-heading text-2xl font-bold text-gray-900">Kontakta oss direkt</h2>
+        <p class="mt-2 text-gray-600">
+          Det går fortfarande bra att ringa eller skicka e-post om du vill ställa frågor innan du skickar en
+          bokningsförfrågan.
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
           <a
             href="tel:070-6484804"
-            class="flex items-center justify-center gap-3 px-6 py-4 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-sm transition-all group"
+            class="group flex items-center justify-center gap-3 rounded-lg border border-gray-200 bg-white px-6 py-4 transition-all hover:border-brand-300 hover:shadow-sm"
           >
-            <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <span class="font-semibold text-gray-900 group-hover:text-brand-700 transition-colors">Ring 070-648 48 04</span>
+            <span class="font-semibold text-gray-900 transition-colors group-hover:text-brand-700">Ring 070-648 48 04</span>
           </a>
 
           <a
-            href="mailto:info@yttertavle.se?subject=Bokningsförfrågan%20-%20Yttertavle%20Bygdegård"
-            class="flex items-center justify-center gap-3 px-6 py-4 bg-white rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-sm transition-all group"
+            href="mailto:yttertavlebygdegard@gmail.com?subject=Bokningsförfrågan%20-%20Yttertavle%20Bygdegård"
+            class="group flex items-center justify-center gap-3 rounded-lg border border-gray-200 bg-white px-6 py-4 transition-all hover:border-brand-300 hover:shadow-sm"
           >
-            <svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span class="font-semibold text-gray-900 group-hover:text-brand-700 transition-colors">Skicka e-post</span>
+            <span class="font-semibold text-gray-900 transition-colors group-hover:text-brand-700">Skicka e-post</span>
           </a>
         </div>
 
-        <p class="text-gray-500 text-sm mt-6">
+        <p class="mt-6 text-sm text-gray-500">
           Behöver du mer information om lokalen först? Se
-          <a href={url('/lokalen')} class="text-brand-700 font-semibold hover:underline">lokalen och utrustningen</a>.
+          <a href={url('/lokalen')} class="font-semibold text-brand-700 hover:underline">lokalen och utrustningen</a>.
         </p>
       </div>
     </div>
